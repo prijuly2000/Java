@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd" >
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>2.0</jsp-version>
+  <short-name>fi</short-name>
+  <tag>
+    <name>connect</name>
+    <tag-class>sj.tag.ConnectTag</tag-class>
+    <attribute>
+         <name>driver</name>
+         <required>true</required>
+         <rtexprvalue>true</rtexprvalue>
+         <type>java.lang.String</type>
+    </attribute>
+    <attribute>
+        <name>url</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        <type>java.lang.String</type>
+    </attribute>
+    <attribute>
+        <name>userName</name>
+        <required>true</required>
+        <rtexprvalue>true</rtexprvalue>
+        <type>java.lang.String</type>
+     </attribute>
+     <attribute>
+     <name>password</name>
+     <required>true</required>
+     <rtexprvalue>true</rtexprvalue>
+     <type>java.lang.String</type>
+     </attribute>
+  </tag>
+  <tag>
+     <name>query</name>
+     <tag-class>sj.tag.QueryTag</tag-class>
+     <attribute>
+       <name>sql</name>
+       <required>true</required>
+       <rtexprvalue>true</rtexprvalue>
+       <type>java.lang.String</type>
+     </attribute>
+  
+  </tag>
+</taglib>
+

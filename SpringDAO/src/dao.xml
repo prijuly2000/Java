@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<bean id="objCategoryDAO" class="org.CategoryDAOImpl">
+<property name="dao" ref="objDAO"/>
+</bean>
+<bean id="objDAO" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+<property name="url" value="jdbc:oracle:thin:@172.25.12.1:1521:orcl"></property>
+<property name="username" value="user101"></property>
+<property name="password" value="user101"></property>
+</bean>
+<bean id="objCategory" class="org.Category">
+<property name="catId" value="11"></property>
+<property name="catName" value="xyz"></property>
+<property name="catDesc" value="asdfghh"></property>
+<property name="catImage" value="Image"></property>
+</bean>
+
+</beans>

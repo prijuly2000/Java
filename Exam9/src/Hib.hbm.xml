@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="org.Student" table="Student">
+		<id name="id" column="id"></id>
+		<property name="name" column="name" type="java.lang.String"></property>
+		<property name="city" column="city" type="java.lang.String"></property>
+		<property name="pin" column="pin" type="java.lang.String"></property>
+		<property name="email" column="email" type="java.lang.String"></property>
+		<property name="mobile" column="mobile" type="java.lang.String"></property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd" >
+<struts>
+	<constant name="struts.multipart.saveDir" value="d:\\uploadFolder\\tmp"></constant>
+	<constant name="struts.custom.i18n.resources" value="Globals"></constant>
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<interceptors>
+			<interceptor name="Hiber" class="org.HiberInterceptor"></interceptor>
+			<interceptor-stack name="hiberStack">
+				<interceptor-ref name="Hiber"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		
+		<action name="AddCat" class="org.AddCat">
+			<result name="success">/AddCategory.jsp</result>
+		</action>
+		
+		
+		<action name="catFile" class="org.catFile">
+			<result name="success">/Done.jsp</result>
+			<result name="failure">/NotDone.jsp</result>
+			<interceptor-ref name="hiberStack"></interceptor-ref>
+		</action>
+	</package>
+	
+	
+	
+</struts>

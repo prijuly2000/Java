@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd" >
+<struts>
+	<constant name="struts.multipart.saveDir" value="d:\\uploadFolder\\tmp"></constant>
+	<constant name="struts.custom.i18n.resources" value="Errors"></constant>
+	
+	<package name="default" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="hiberStrutsInterceptor" class="org.HibernateInterceptor"></interceptor>
+			<interceptor-stack name="hiberStack">
+			<interceptor-ref name="hiberStrutsInterceptor"></interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+			
+			<interceptor name="IpInterceptor" class="org.IpInterceptor"/>
+			<interceptor-stack name="IpStack">
+				<interceptor-ref name="IpInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<action name="RegisterUser" class="org.RegisterUser">
+			<result name="success">/Registered.jsp</result>
+			<result name="failure">/failure.jsp</result>
+			<interceptor-ref name="hiberStrutsInterceptor"/>
+			
+		</action>
+		<action name="Welcome" class="org.Welcome">
+			<result name="success">/Welcome.jsp</result>
+			<result name="invalidip">/Invalid.jsp</result>
+			<interceptor-ref name="IpStack"/>
+		</action>
+		
+		
+		<action name="UserFileUpload" class="org.UserFileUploaded">
+			<result name="success">/Uploaded.jsp</result>
+			<interceptor-ref name="fileUpload">
+			<param name="maximumSize">10485760</param>
+			<param name="allowedTypes">image/pjpeg,image/gif,image/jpeg</param>
+			</interceptor-ref>
+			<interceptor-ref name="basicStack"></interceptor-ref>
+		</action>
+		
+	</package>
+</struts>

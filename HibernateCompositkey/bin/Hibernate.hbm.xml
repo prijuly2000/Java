@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+<class name="org.Product" table="products">
+	<composite-id class="org.ProductID" name="pId">
+	<key-property name="catId" column="catId" type="java.lang.Integer"></key-property>
+	<key-property name="prodId" column="prodId" type="java.lang.Integer"></key-property>
+	
+	</composite-id>
+	<property name="prodName" column="prodName" type="java.lang.String"></property>
+	<property name="prodDesc" column="prodDesc" type="java.lang.String"></property>
+	<property name="prodImg" column="prodImg" type="java.lang.String"></property>
+	
+</class>
+</hibernate-mapping>
